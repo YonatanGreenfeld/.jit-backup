@@ -1,1 +1,6 @@
-
+applications:
+- application_name: ''
+  headers: []
+  swagger_file_paths:
+  - blabla
+  type: api
