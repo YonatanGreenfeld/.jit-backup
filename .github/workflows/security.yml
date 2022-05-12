@@ -113,7 +113,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: Z2hwX1JrdUpqZk5QTk5XWmpzVDRZb0J0Z3ZCNnBJOGtNMDNBbDlzMAo=
-        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
         security_control_args: --quiet conf -f json /code
         
         dispatch_type: workflow
