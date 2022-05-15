@@ -48,6 +48,20 @@ jobs:
         
         dispatch_type: workflow
 
+  docker-scan:
+    if: contains( fromJSON(github.event.inputs.client_payload).payload.control_ids, 'Run trivy') || fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan'
+    runs-on: ubuntu-latest
+    steps:
+    - name: trivy
+      uses: jitsecurity-controls/jit-github-action@v1.5
+      with:
+        docker_user: jit-bot
+        docker_password: Z2hwX1JrdUpqZk5QTk5XWmpzVDRZb0J0Z3ZCNnBJOGtNMDNBbDlzMAo=
+        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:latest
+        security_control_args: --quiet conf -f json /code
+        
+        dispatch_type: workflow
+
   software-component-analysis-python:
     if: contains( fromJSON(github.event.inputs.client_payload).payload.control_ids, 'Run Dependency Check') || fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-python'
     runs-on: ubuntu-latest
@@ -104,16 +118,16 @@ jobs:
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
 
-  docker-scan:
-    if: contains( fromJSON(github.event.inputs.client_payload).payload.control_ids, 'Run trivy') || fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan'
+  iac-misconfig-detection:
+    if: contains( fromJSON(github.event.inputs.client_payload).payload.control_ids, 'Run KICS') || fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection'
     runs-on: ubuntu-latest
     steps:
-    - name: trivy
+    - name: kics
       uses: jitsecurity-controls/jit-github-action@v1.5
       with:
         docker_user: jit-bot
         docker_password: Z2hwX1JrdUpqZk5QTk5XWmpzVDRZb0J0Z3ZCNnBJOGtNMDNBbDlzMAo=
-        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
-        security_control_args: --quiet conf -f json /code
-        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:latest
+        security_control_args: scan -p /code -o /code/jit-report -f json --exclude-severities INFO,MEDIUM,LOW
+        security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
