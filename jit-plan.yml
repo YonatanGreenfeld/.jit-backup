@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: c89b2f15-fa7b-4ce4-9607-7cb96d1f58bd
 author: Jit
 version: 0.1
 owners:
@@ -26,4 +27,3 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Run a web application scanner
     uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-# bf4dae21-0839-4c97-bb0d-d3fbc1b97d04
