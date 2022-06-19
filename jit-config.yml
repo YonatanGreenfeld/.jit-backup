@@ -1,12 +1,1 @@
-applications:
-- application_name: ''
-  headers: []
-  swagger_file_paths:
-  - blabla
-  type: api
-aws:
-- account_id: '932461892481'
-  account_name: JitTestOrg
-  regions:
-  - us-east-1
-  type: org
+
