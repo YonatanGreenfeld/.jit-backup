@@ -1,1 +1,8 @@
-
+aws:
+- account_id: '932461892481'
+  account_name: JitTestOrg
+  regions:
+  - us-east-2
+  - us-east-1
+  - us-west-1
+  type: org
