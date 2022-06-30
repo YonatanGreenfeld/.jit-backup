@@ -20,6 +20,7 @@ jobs:
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
 
+
   static-code-analysis-js:
     if: contains( fromJSON(github.event.inputs.client_payload).payload.control_ids, '4c2c3bec-7e60-4167-baf0-5c5986124652') || fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js'
     runs-on: ubuntu-latest
