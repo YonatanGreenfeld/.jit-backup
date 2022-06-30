@@ -1,13 +1,13 @@
-name: My plan
-level: beginner
-update_id: efa367a4-1b13-4041-9efb-ff30e2efa295
-author: Jit
-version: 0.1
 owners:
   default: null
+name: My plan
+author: Jit
+items:
+  - name: Scan code for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+level: beginner
+version: 0.1
 references:
   - https://www.jit.io
 tags: []
-items:
-  - name: Scan code for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
